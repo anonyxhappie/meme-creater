@@ -59,24 +59,22 @@ a{
 	color:grey;
 }
 #ithead{
-	font-size:320%;
-	color:#fff;	
+	font-size:320%;	
 	position: absolute; 
 	height: 200px; 
 	width: 200px; 
-	right: 300px; 
+	right: 400px; 
 	top: 10px;
-	line-height: 200px; 
+	border: 5px white;
 }
 #itfoot{
 	font-size:320%;
-	color:#fff;	
 	position: absolute; 
 	height: 200px; 
 	width: 200px; 
-	right: 300px; 
-	bottom: 50px; 
-	line-height: 200px; 
+	right: 400px; 
+	bottom: 10px; 
+	border: 5px white;
 }
 </style>
 </head>
@@ -92,6 +90,10 @@ a{
 		<div id="bottom">
 			<p>Bottom</p>
 			<input type="text" id="ifooter" />
+		</div></br>
+		<div id="radiodiv">
+			<input type="radio" id="whiteRadio" value="white" name="color" onBlur="changeColour('white')"> : White </br>
+			<input type="radio" id="blackRadio" value="black" name="color" onBlur="changeColour('black')"> : Black
 		</div>
 		<div id="image">
 			<p>Background Image</p>
@@ -102,8 +104,8 @@ a{
 	</div>
 </form>
 <div id="container">
-	<p id="ithead"></p>
-	<p id="itfoot"></p>
+	<p id="ithead" name="xt"></p>
+	<p id="itfoot" name="xt"></p>
 	<img src="#" id="imageUploaded" height="400px" width="400px" alt=""/>
 </div>
 <div id="footer">	
@@ -118,6 +120,11 @@ function init() {
     document.getElementById("myBtn").disabled = false;
 }
 //window.onload = init;
+
+function changeColour(color) {
+    document.getElementById("ithead").style.color=color;
+    document.getElementById("itfoot").style.color=color;
+}
 
 function loadImageFileAsURL(){
 
@@ -138,11 +145,12 @@ function loadImageFileAsURL(){
    	 };
   	 fileReader.readAsDataURL(fileToLoad);
     }
+
 }
 
 function download(){
 	var im = document.getElementById("inputFileToLoad").getAttribute("src");
-	console.log("oops" + im.value);
+	//console.log("oops" + im.value);
 }
 </script>
 
